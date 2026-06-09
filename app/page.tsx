@@ -6,7 +6,7 @@ import { supabase } from '@/lib/supabase';
 interface Challenge {
   id: number;
   pregunta: string;
-  opciones: string[];
+  options: string[]; // <-- AQUI ESTABA EL ERROR, CORREGIDO A 'options'
   respuesta_correcta: string;
 }
 
@@ -95,7 +95,7 @@ export default function Home() {
                 <p className="mb-6 text-lg text-gray-200">{section.data.pregunta}</p>
 
                 <div className="grid gap-3 sm:grid-cols-2">
-                  {section.data.opciones.map((option, idx) => {
+                  {section.data.options.map((option, idx) => {
                     const isSelected = selected === option;
                     let buttonStyle = 'bg-gray-800 hover:bg-gray-700 border-gray-700 text-gray-200';
 
