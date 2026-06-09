@@ -6,7 +6,7 @@ import { supabase } from '@/lib/supabase';
 interface Challenge {
   id: number;
   pregunta: string;
-  options: string[];
+  opciones: string[];
   respuesta_correcta: string;
 }
 
@@ -74,8 +74,8 @@ export default function Home() {
             const selected = selectedAnswers[section.id];
             const isCorrect = selected === section.data.respuesta_correcta;
 
-            // Mecanismo de seguridad para evitar colapso si options no es un arreglo
-            const safeOptions = Array.isArray(section.data.options) ? section.data.options : [];
+            // Mecanismo de seguridad apuntando a la columna correcta 'opciones'
+            const safeOptions = Array.isArray(section.data.opciones) ? section.data.opciones : [];
 
             return (
               <section
